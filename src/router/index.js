@@ -1,22 +1,52 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import List from '../components/list.vue'
+import CeShi from '../views/ceshi.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    redirect: '/top',
+    children: [{
+      path: '/top',
+      component: List
+    }, {
+      path: '/shehui',
+      component: List
+    }, {
+      path: '/guonei',
+      component: List
+    }, {
+      path: '/guoji',
+      component: List
+    }, {
+      path: '/yule',
+      component: List
+    }, {
+      path: '/tiyu',
+      component: List
+    }, {
+      path: '/junshi',
+      component: List
+    }, {
+      path: '/keji',
+      component: List
+    }, {
+      path: '/caijing',
+      component: List
+    }, {
+      path: '/shishang',
+      component: List
+    }]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/ceshi',
+    name: 'CeShi',
+    component: CeShi
   }
 ]
 
